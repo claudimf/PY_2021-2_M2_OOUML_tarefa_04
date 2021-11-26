@@ -1,5 +1,9 @@
 class ControlePopulacional:
 
+    def formatar(self, quantidade):
+        return '{:,}'.format(quantidade).replace(",", ".")
+
+
     #Exercicio 1
     def buscarPopulacaoBrasil(self, df):
         total = 0
@@ -27,3 +31,18 @@ class ControlePopulacional:
         filtro = df.loc[(df['MUNICIPIO']== municipio) & (df['UF'] == uf)]
         total_pop_muni = filtro['POPULACAO'].values[0]
         print("O total da população na cidade de ", municipio, " é:", total_pop_muni)
+    
+
+    #Imprima o estado com a menor população
+    def menorPopulacaoEstado(self, df):
+        filtro = df.loc[(df['POPULACAO'] == df['POPULACAO'].min())]
+        quantidade_formatada = self.formatar(filtro['POPULACAO'].values[0])
+        estado = filtro['ESTADOS'].values[0]
+        print("Estado com a menor população:", estado, "e a quantidade é: ", quantidade_formatada, "habitantes.")
+
+    #Imprima o estado com a maior população
+    def maiorPopulacaoEstado(self, df):
+        filtro = df.loc[(df['POPULACAO'] == df['POPULACAO'].max())]
+        quantidade_formatada = self.formatar(filtro['POPULACAO'].values[0])
+        estado = filtro['ESTADOS'].values[0]
+        print("Estado com a maior população:", estado, "e a quantidade é: ", quantidade_formatada, "habitantes.")

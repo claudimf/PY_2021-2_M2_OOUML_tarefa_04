@@ -17,4 +17,4 @@ class Utilidades:
     def plotarGrafico(self, eixo_x, eixo_y):
         plt.bar(eixo_x, eixo_y)
         plt.ticklabel_format(style='plain', axis='y')
-        plt.show()
+        plt.savefig('charts/plot.png') # Exportando o gráfico gerado

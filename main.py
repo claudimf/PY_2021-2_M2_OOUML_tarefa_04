@@ -35,6 +35,12 @@ def main():
     eixo_y = ut_populacao_regiao.df['POPULACAO'].values
     ut_populacao_regiao.plotarGrafico(eixo_x, eixo_y)
 
+    #Imprima o estado com a menor população
+    cp.menorPopulacaoEstado(ut_populacao_estado.df)
+
+    #Imprima o estado com a maior população
+    cp.maiorPopulacaoEstado(ut_populacao_estado.df)
+
 #
 if __name__ == '__main__':
     main()
